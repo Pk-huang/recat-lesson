@@ -1,11 +1,13 @@
-import {  Lesson2 } from "./components/lesson";
+import React, { useState } from "react";
+import { RatingButton } from "./components/lesson4";
 
-export function App() {
+export const App = () => {
+  const [score, setScore] = useState(0);
+
   return (
     <div>
-      <h2>app</h2>
-      
-         <Lesson2 />
+      <h2>你的評分：{score}</h2>
+      <RatingButton onRate={setScore} />
     </div>
   );
-}
+};
