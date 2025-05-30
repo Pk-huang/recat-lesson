@@ -1,13 +1,23 @@
 import React, { useState } from "react";
-import { RatingButton } from "./components/lesson4";
+import { ScoreDisplay } from "./components/ScoreDisplay";
+import { ScoreControl } from "./components/ScoreControl";
 
 export const App = () => {
-  const [score, setScore] = useState(0);
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
 
+
+
+  
   return (
-    <div>
-      <h2>你的評分：{score}</h2>
-      <RatingButton onRate={setScore} />
+    <div className="p-4 border rounded">
+
+      <ScoreDisplay likes={likes} dislikes={dislikes} />
+
+      < ScoreControl
+        onLike={() => setLikes(likes + 1)}
+        onDislike={() => setDislikes(dislikes + 1)}
+      />
     </div>
   );
 };
